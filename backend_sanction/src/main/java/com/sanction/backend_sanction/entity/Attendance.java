@@ -38,10 +38,6 @@ public class Attendance {
     private Integer studentID;
 
     @ManyToOne
-    @JoinColumn(name = "dayID", referencedColumnName = "dayID", insertable = false, updatable = false)
-    private InclusiveDays inclusiveDays;
-
-    @ManyToOne
     @JoinColumn(name = "studentID", referencedColumnName = "studentID", insertable = false, updatable = false)
     private Student student;
 }
