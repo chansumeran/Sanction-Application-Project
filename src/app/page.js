@@ -15,16 +15,21 @@ export default function Home() {
   // Use states
   const [isLoginClicked, setLoginClicked] = useState(false);
   const [secretKeyInput, setSecretKeyInput] = useState('');
+  const [showIncorrectKeyMessage, setShowIncorrectKeyMessage] = useState(false);
 
   // Function to handle login button click
   const handleLoginButtonClick = () => {
     if (isLoginClicked) {
       if (secretKeyInput === secretKey) {
-        alert('Authentication successful! Redirecting to Dashboard');
         router.push('/dashboard');
       } else {
         // Display error if the key is incorrect
-        alert('Wrong key');
+        setShowIncorrectKeyMessage(true);
+  
+        // Hide the error message after 3 seconds
+        setTimeout(() => {
+          setShowIncorrectKeyMessage(false);
+        }, 3000);
       }
     }
     if(!isLoginClicked) {
@@ -34,6 +39,7 @@ export default function Home() {
 
   // Function to handle login text click
   const handleLoginTextClick = () => {
+    setShowIncorrectKeyMessage(false);
     setLoginClicked(!isLoginClicked);
   };
 
@@ -45,8 +51,8 @@ export default function Home() {
         
         {/* Header*/}
         <div className='mt-36 md:mt-0'>
-          <p className='font-extralight text-lg md:text-[34px] md:leading-10 text-white'>Together</p>
-          <h1 className='font-bold text-3xl md:text-[74px] md:leading-10 text-white md:mt-4'>WeComply.</h1>
+          <p className='font-extralight text-[18px] md:text-[34px] md:leading-10 text-white'>Together</p>
+          <h1 className='font-bold text-[44px] md:text-[74px] leading-10 text-white md:mt-4'>WeComply.</h1>
         </div>
 
       </section>
@@ -55,11 +61,11 @@ export default function Home() {
       <section className='md:w-6/12 flex flex-col items-start'>
 
         {/* InputBox */}
-        <div className='flex items-center gap-2 mt-10'>
+        <div className='flex flex-col md:flex-row items-center gap-2 mt-10'>
           {isLoginClicked ? (
             <input
               className='w-60 md:w-80 px-4 py-3 md:py-4 border rounded-xl shadow-md focus:outline-none focus:ring'
-              type="text"
+              type="password"
               name="secret_key"
               placeholder='Enter Secret Key'
               value={secretKeyInput}
@@ -75,27 +81,37 @@ export default function Home() {
           )}
 
           {/* Track/Login Button */}
-          <div className="bg-secondary p-3 md:p-4 rounded-xl text-white" onClick={handleLoginButtonClick}>
+          <button className="bg-secondary p-3 md:p-4 rounded-xl text-white mt-2 md:mt-0" onClick={handleLoginButtonClick}>
             <ArrowRightOnRectangleIcon className="h-6 w-6 pl-0.5" />
-          </div>
+          </button>
         </div>
 
         {/* Action text */}
-        <div>
+        <div className='container flex justify-center md:justify-start mt-3 md:mt-0'>
           {isLoginClicked ? (
-            <p className='font-extralight text-sm md:text-[18px] leading-10 text-white md:mt-2'>
+            <p className='font-extralight text-sm md:text-[18px] leading-10 text-white md:mt-2 ml-2'>
               Not an admin?  
-              <span className='text-accent font-semibold cursor-pointer' onClick={() => setLoginClicked(false)}> Click here.
+              <span className='text-accent font-semibold cursor-pointer' onClick={() => {
+                setLoginClicked(false);
+                setShowIncorrectKeyMessage(false);
+              }}> Click here.
               </span>
             </p>
           ) : (
-            <p className='font-extralight text-sm md:text-[18px] leading-10 text-white md:mt-2'>
+            <p className='font-extralight text-sm md:text-[18px] leading-10 text-white md:mt-2 ml-2'>
               Are you an admin?  
               <span className='text-accent font-semibold cursor-pointer' onClick={handleLoginTextClick}> Login
               </span> instead.
             </p>
           )}
         </div>
+
+        {/* Error message */}
+        {showIncorrectKeyMessage && (
+          <div className='bg-error flex items-center p-3 font-semibold text-white text-sm rounded-lg mt-2'>
+            Incorrect Key. Please Contact the LITES President.
+          </div>
+        )}
 
       </section>
 
