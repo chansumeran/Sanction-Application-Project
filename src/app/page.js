@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid';
+import { ArrowRightOnRectangleIcon, ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { motion } from "framer-motion";
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -16,35 +15,61 @@ export default function Home() {
   const [isLoginClicked, setLoginClicked] = useState(false);
   const [secretKeyInput, setSecretKeyInput] = useState('');
   const [showIncorrectKeyMessage, setShowIncorrectKeyMessage] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  // Function to handle login button click
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleLoginButtonClick();
+    }
+  };
+  
+
   const handleLoginButtonClick = () => {
+    // If the button is disabled, return early
+    if (buttonDisabled) {
+      return;
+    }
+
+    setButtonDisabled(true); // Disable the button
+
     if (isLoginClicked) {
       if (secretKeyInput === secretKey) {
         router.push('/dashboard');
       } else {
-        // Display error if the key is incorrect
         setShowIncorrectKeyMessage(true);
-  
+
         // Hide the error message after 3 seconds
         setTimeout(() => {
           setShowIncorrectKeyMessage(false);
         }, 3000);
       }
     }
-    if(!isLoginClicked) {
+
+    // Enable the button after a 5-second timeout
+    setTimeout(() => {
+      setButtonDisabled(false);
+    }, 3000);
+
+    if (!isLoginClicked) {
       alert('Under Maintenance: Click login text to proceed to admin!');
     }
   };
 
-  // Function to handle login text click
+
   const handleLoginTextClick = () => {
     setShowIncorrectKeyMessage(false);
     setLoginClicked(!isLoginClicked);
-  };
 
+    // If the button is disabled, re-enable it immediately
+    if (buttonDisabled) {
+      setButtonDisabled(false);
+    }
+  };
+  
   return (
-    <main className="bg-primary w-screen min-h-screen flex flex-col md:flex-row items-center gap-x-36">
+    <main 
+    className="bg-primary w-screen min-h-screen flex flex-col md:flex-row items-center gap-x-36">
 
       {/* Left Container */}
       <section className='md:w-6/12 flex justify-center md:justify-end items-center'>
@@ -70,6 +95,7 @@ export default function Home() {
               placeholder='Enter Secret Key'
               value={secretKeyInput}
               onChange={(e) => setSecretKeyInput(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
           ) : (
             <input
@@ -77,6 +103,7 @@ export default function Home() {
               type="text"
               name="id_no"
               placeholder='Search by ID Number'
+              onKeyDown={handleKeyDown}
             />
           )}
 
@@ -108,11 +135,13 @@ export default function Home() {
 
         {/* Error message */}
         {showIncorrectKeyMessage && (
-          <div className='bg-error flex items-center p-3 font-semibold text-white text-sm rounded-lg mt-2'>
-            Incorrect Key. Please Contact the LITES President.
+          <div className='bg-error flex items-center py-3 px-4 font-semibold text-white text-[14px] rounded-lg mt-2'>
+            <div className='flex items-center gap-1'>
+              <ExclamationCircleIcon className="h-7 w-7" />
+              <p>Incorrect Key. Please Contact the LITES President.</p>
+            </div>
           </div>
         )}
-
       </section>
 
     </main>
