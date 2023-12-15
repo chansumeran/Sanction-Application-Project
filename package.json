@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "next dev",
+    "dev:backend": "cd backend_sanction && mvn spring-boot:run",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,6 +13,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "axios": "^1.6.2",
     "framer-motion": "^10.16.16",
     "heroicons": "^2.0.18",
     "next": "14.0.4",

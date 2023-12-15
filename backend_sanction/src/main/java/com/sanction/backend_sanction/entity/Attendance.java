@@ -29,17 +29,12 @@ public class Attendance {
     @Column(name = "outPM")
     private LocalDateTime outPM;
 
-    private String status;
-
-    @Column(name = "dayID")
-    private Integer dayID;
-
     @Column(name = "studentId")
     private Integer studentID;
 
     @ManyToOne
-    @JoinColumn(name = "dayID", referencedColumnName = "dayID", insertable = false, updatable = false)
-    private InclusiveDays inclusiveDays;
+    @JoinColumn(name = "eventID", referencedColumnName = "eventID", insertable = false, updatable = false)
+    private Event eventID;
 
     @ManyToOne
     @JoinColumn(name = "studentID", referencedColumnName = "studentID", insertable = false, updatable = false)
