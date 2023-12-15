@@ -18,11 +18,5 @@ public class SanctionController {
     @Autowired
     private SanctionServiceImpl sanctionService;
 
-    @PutMapping("/update")
-    public ResponseEntity<String> updateSanctions(@RequestBody List<SanctionDto> sanctionDtoList) {
-        try {
-            sanctionService.updateSanctionDescription(sanctionDtoList)
-        }
-
-    }
+    
 }
