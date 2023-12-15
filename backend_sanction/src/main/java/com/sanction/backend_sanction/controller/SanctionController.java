@@ -17,6 +17,4 @@ public class SanctionController {
 
     @Autowired
     private SanctionServiceImpl sanctionService;
-
-    
 }
