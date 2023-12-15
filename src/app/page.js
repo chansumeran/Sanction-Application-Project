@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { ArrowRightOnRectangleIcon, ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { motion } from "framer-motion";
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
+
 
 export default function Home() {
 
@@ -53,10 +55,29 @@ export default function Home() {
 
     if (!isLoginClicked) {
       alert('Under Maintenance: Click login text to proceed to admin!');
+      handleMaintenance();
     }
   };
 
+<<<<<<< HEAD
 
+=======
+   // Function to handle maintenance
+   const handleMaintenance = () => {
+    // Perform Axios request or any other maintenance logic
+    axios.get('http://localhost:8080/students/2001720')
+      .then(response => {
+        // Handle the response, e.g., show a message or perform other actions
+        console.log(response.data);
+      })
+      .catch(error => {
+        // Handle errors if needed
+        console.error('Error during maintenance:', error);
+      });
+  };
+
+  // Function to handle login text click
+>>>>>>> ffd3c482d75bb3e927aabc447fafe608077d6d61
   const handleLoginTextClick = () => {
     setShowIncorrectKeyMessage(false);
     setLoginClicked(!isLoginClicked);
