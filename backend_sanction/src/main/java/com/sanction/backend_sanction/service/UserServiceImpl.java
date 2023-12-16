@@ -16,6 +16,6 @@ public class UserServiceImpl implements UserService {
     public Optional<String> getUserRole(Integer userId) {
         Optional<User> userOptional = userRepository.findById(userId);
 
-        return userOptional.map(User::getUserRole);
+        return userOptional.map(User::getRole);
     }
 }

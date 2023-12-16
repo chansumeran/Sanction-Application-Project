@@ -1,5 +1,6 @@
 package com.sanction.backend_sanction.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,12 @@ import lombok.NoArgsConstructor;
 public class Sanction {
 
     @Id
+    @Column(name = "sanction_id")
     private Integer sanctionId;
+
     private String description;
-    private Integer frequency;
+
+    private Integer triggerValue;
+
+    private String frequency;
 }

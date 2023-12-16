@@ -17,16 +17,12 @@ import java.time.LocalDate;
 public class Event {
 
     @Id
-    @Column(name = "eventID")
+    @Column(name = "event_id")
     private Integer eventID;
 
-    @Column(name = "eventName")
+    @Column(name = "event_name")
     private String eventName;
 
-    @Column(name = "eventDate")
+    @Column(name = "event_date")
     private LocalDate eventDate;
-
-    @Column(name = "eventTime")
-    private Time eventTime;
-
 }
