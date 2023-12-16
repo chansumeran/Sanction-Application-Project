@@ -59,6 +59,22 @@ export default function Home() {
     }
   };
 
+
+   // Function to handle maintenance
+   const handleMaintenance = () => {
+    // Perform Axios request or any other maintenance logic
+    axios.get('http://localhost:8080/students/2001720')
+      .then(response => {
+        // Handle the response, e.g., show a message or perform other actions
+        console.log(response.data);
+      })
+      .catch(error => {
+        // Handle errors if needed
+        console.error('Error during maintenance:', error);
+      });
+  };
+
+  // Function to handle login text click
   const handleLoginTextClick = () => {
     setShowIncorrectKeyMessage(false);
     setLoginClicked(!isLoginClicked);

@@ -5,7 +5,6 @@ import SanctionAdvancedButton from "../components/sanctionAdvanceButton";
 import SanctionHomeTable from "../components/sanctionHomeTable";
 
 const Dashboard = () => {
-  // Render the Dashboard content if authenticated
   return (
     <div className="flex flex-col h-screen items-center bg-neutral">
       <Header title="Dashboard" onboardingType="dashboard" />

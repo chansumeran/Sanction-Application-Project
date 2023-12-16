@@ -10,15 +10,14 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     // ADVANCED FILTER
-    @Query(value = "SELECT s.* FROM student s JOIN Department d ON s.deptCode = d.deptCode WHERE (:deptCode IS NULL OR d.deptCode = :deptCode) AND (:course IS NULL OR s.course = :course) AND (:yearLevel IS NULL OR s.yearlvl = :yearLevel)", nativeQuery = true)
-    List<Student> findByDynamicFilters(@Param("deptCode") String deptCode, @Param("course") String course, @Param("yearLevel") String yearLevel);
+    @Query(value = "SELECT s.* FROM student s JOIN Department d ON s.dept_code = d.dept_code WHERE (:departmentCode IS NULL OR d.dept_code = :departmentCode) AND (:course IS NULL OR s.course = :course) AND (:yearLevel IS NULL OR s.year_level = :yearLevel)", nativeQuery = true)
+    List<Student> findByDynamicFilters(@Param("departmentCode") String deptCode, @Param("course") String course, @Param("yearLevel") String yearLevel);
 
     // FILTER BY EVENT
     @Query(value = "SELECT student.* " +
             "FROM student " +
-            "JOIN attendance ON student.studentID = attendance.studentID " +
-            "JOIN inclusivedays ON inclusivedays.dayID = attendance.dayID " +
-            "JOIN event ON event.eventID = inclusivedays.eventID " +
-            "WHERE event.eventName = :eventName", nativeQuery = true)
+            "JOIN attendance ON student.student_id = attendance.student_id " +
+            "JOIN event ON event.event_id = attendance.event_id " +
+            "WHERE event.event_name = :eventName", nativeQuery = true)
     List<Student> findByEventFilter(String eventName);
 }
