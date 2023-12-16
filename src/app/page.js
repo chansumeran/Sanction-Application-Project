@@ -59,7 +59,6 @@ export default function Home() {
     }
   };
 
-<<<<<<< HEAD
 
    // Function to handle maintenance
    const handleMaintenance = () => {
@@ -76,8 +75,6 @@ export default function Home() {
   };
 
   // Function to handle login text click
-=======
->>>>>>> 5c3a18d7155fe2c3ec3a8435f74e6932688e08fb
   const handleLoginTextClick = () => {
     setShowIncorrectKeyMessage(false);
     setLoginClicked(!isLoginClicked);
