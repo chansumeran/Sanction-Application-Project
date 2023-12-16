@@ -9,7 +9,7 @@ const Header = ({ title, onboardingType }) => {
       style={{ boxShadow: "0 10px 20px 10px rgba(134, 104, 255, 0.2)" }}
     >
       <h1 className="text-2xl font-semibold text-white">{title}</h1>
-      {/* <OnboardingInfo onInfoClick={onInfoClick} /> */}
+      {/* Header to Pages*/}
       {onboardingType === "dashboard" && <OnboardingInfo />}
       {onboardingType === "config" && <OnboardingInfoConfig />}
       {onboardingType === "clarity" && <OnboardingInfoClarity />}

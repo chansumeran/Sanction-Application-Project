@@ -11,7 +11,6 @@ const OnboardingInfo = ({ onInfoClick }) => {
 
   useEffect(() => {
     if (startTour) {
-      // Define the steps for the Intro.js tour
       const steps = [
         {
           element: "#searchInput",
@@ -43,10 +42,8 @@ const OnboardingInfo = ({ onInfoClick }) => {
           element: "#clarity",
           intro: "This button brings you to Clarity AI for further assistance.",
         },
-        // ... other steps for your tour
       ];
 
-      // Start the Intro.js tour
       introJs().setOptions({ steps }).start();
 
       // Reset the state so the tour can be started again if needed
@@ -54,13 +51,12 @@ const OnboardingInfo = ({ onInfoClick }) => {
     }
   }, [startTour]);
   return (
-    // Use the motion.button instead of button to enable animations
     <motion.button
       onClick={() => setStartTour(true)}
       aria-label="Information"
-      whileHover={{ backgroundColor: "#5947A2" }} // Apply the hover effect
-      transition={{ duration: 0.2, ease: "easeInOut" }} // Apply the transition properties
-      whileTap={{ scale: 0.75 }} // Apply the tap effect
+      whileHover={{ backgroundColor: "#5947A2" }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      whileTap={{ scale: 0.75 }}
       className="flex items-center justify-center h-9 w-9 rounded-full"
     >
       <InformationCircleIcon className="h-9 w-9 text-white" />

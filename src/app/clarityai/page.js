@@ -121,8 +121,8 @@ const Clarityai = () => {
             <motion.button
               type="submit"
               id="submitButton"
-              transition={{ duration: 0.2, ease: "easeInOut" }} // Apply the transition properties
-              whileTap={{ scale: 0.75 }} // Apply the tap effect
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              whileTap={{ scale: 0.75 }}
               className="bg-secondary p-3 md:p-4 rounded-xl text-white mt-2 md:mt-0"
             >
               <ArrowSmallRightIcon className="h-6 w-6 pl-0.5" />
@@ -132,9 +132,9 @@ const Clarityai = () => {
             <motion.button
               type="button"
               id="clearChat"
-              whileHover={{ backgroundColor: "#5947A2", color: "#FFFFFF" }} // Apply the hover effect
-              transition={{ duration: 0.2, ease: "easeInOut" }} // Apply the transition properties
-              whileTap={{ scale: 0.75 }} // Apply the tap effect
+              whileHover={{ backgroundColor: "#5947A2", color: "#FFFFFF" }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              whileTap={{ scale: 0.75 }}
               onClick={clearChat}
               className="bg-neutral text-black font-semibold p-3 md:p-4 rounded-xl mt-2 md:mt-0"
             >

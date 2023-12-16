@@ -4,7 +4,6 @@ import SanctionConfigInput from "../components/sanctionConfigInput";
 import SanctionConfigInput2 from "../components/sanctionConfigInput2";
 
 const Config = () => {
-  // Render the Dashboard content if authenticated
   return (
     <div className="flex flex-col h-screen items-center bg-neutral overflow-y-auto">
       <Header title="Configuration" onboardingType="config" />
