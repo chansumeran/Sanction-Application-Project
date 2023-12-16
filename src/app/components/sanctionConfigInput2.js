@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const sanctionConfigInput2 = () => {
   return (
     <Fragment>
-      <div className="flex justify-between items-end space-x-7">
+      <div className="flex justify-between items-end space-x-7 ">
         {/* Flex container for alignment */}
         <div className="flex-1">
           {/* Flex child for input */}
@@ -17,7 +17,7 @@ const sanctionConfigInput2 = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-full italic"
+            className="rounded-md py-3 px-6 text-sm  w-64 italic focus:outline-none focus:ring"
             type="text"
             id="frequency1"
             placeholder="Default value of 1"
@@ -33,7 +33,7 @@ const sanctionConfigInput2 = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-full italic"
+            className="rounded-md py-3 px-6 text-sm w-64 italic focus:outline-none focus:ring"
             id="frequency2"
             placeholder="Default value of 4"
           />
@@ -48,7 +48,7 @@ const sanctionConfigInput2 = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-full italic"
+            className="rounded-md py-3 px-6 text-sm w-64 italic focus:outline-none focus:ring"
             type="text"
             id="frequency3"
             placeholder="Default value of 7"

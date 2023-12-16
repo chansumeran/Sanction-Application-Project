@@ -6,11 +6,11 @@ import SanctionHomeTable from "../components/sanctionHomeTable";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col h-screen items-center bg-neutral">
+    <div className="flex flex-col h-screen items-center bg-neutral ">
       <Header title="Dashboard" onboardingType="dashboard" />
 
       <div
-        className="flex w-8/12 h-[700px] bg-white p-20 rounded-2xl mt-6 shadow-lg  flex-col"
+        className="flex w-8/12 h-[700px] bg-white p-20 rounded-2xl mt-6 shadow-lg  flex-col overflow-y-auto"
         style={{ boxShadow: "0 10px 20px 10px rgba(134, 104, 255, 0.2)" }}
       >
         {/* flex container for the header and search/buttons */}
@@ -21,7 +21,7 @@ const Dashboard = () => {
           <div className="flex space-x-4 items-center">
             <input
               style={{ backgroundColor: "#EDF1F7" }}
-              className="rounded-full py-3 px-6 text-sm"
+              className="rounded-full py-3 px-6 text-sm focus:outline-none focus:ring"
               type="text"
               id="searchInput"
               placeholder="Search..."

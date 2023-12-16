@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import TypingAnimation from "../components/typingAnimation";
 import { ArrowSmallRightIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
 
 const Clarityai = () => {
   const [inputValue, setInputValue] = useState("");
@@ -66,7 +67,7 @@ const Clarityai = () => {
 
   return (
     <div className="flex flex-col h-screen items-center bg-neutral">
-      <Header title="Clarity AI" />
+      <Header title="Clarity AI" onboardingType="clarity" />
 
       <div
         className="flex flex-col w-8/12 h-[700px] overflow-y-auto bg-white p-6 rounded-2xl mt-6 shadow-lg"
@@ -111,26 +112,34 @@ const Clarityai = () => {
           <div className="flex gap-2">
             <input
               type="text"
+              id="chatBox"
               className="flex-grow px-4 py-3 md:py-4 border rounded-xl shadow-md focus:outline-none focus:ring bg-neutral"
               placeholder="Type your message here..."
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <button
+            <motion.button
               type="submit"
+              id="submitButton"
+              transition={{ duration: 0.2, ease: "easeInOut" }} // Apply the transition properties
+              whileTap={{ scale: 0.75 }} // Apply the tap effect
               className="bg-secondary p-3 md:p-4 rounded-xl text-white mt-2 md:mt-0"
             >
               <ArrowSmallRightIcon className="h-6 w-6 pl-0.5" />
-            </button>
+            </motion.button>
 
             {/**Clear button */}
-            <button
+            <motion.button
               type="button"
+              id="clearChat"
+              whileHover={{ backgroundColor: "#5947A2", color: "#FFFFFF" }} // Apply the hover effect
+              transition={{ duration: 0.2, ease: "easeInOut" }} // Apply the transition properties
+              whileTap={{ scale: 0.75 }} // Apply the tap effect
               onClick={clearChat}
               className="bg-neutral text-black font-semibold p-3 md:p-4 rounded-xl mt-2 md:mt-0"
             >
               Clear
-            </button>
+            </motion.button>
           </div>
         </form>
       </div>

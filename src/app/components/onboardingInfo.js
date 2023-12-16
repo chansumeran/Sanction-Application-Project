@@ -19,27 +19,29 @@ const OnboardingInfo = ({ onInfoClick }) => {
         },
         {
           element: "#eventButton",
-          intro: "This is where you can search for students with sanctions.",
+          intro:
+            "Click this button to filter per events. The table will then show all the students that is participating/participated in the event.",
         },
         {
           element: "#advanceButton",
-          intro: "This is where you can search for students with sanctions.",
+          intro:
+            "Click this button to filter per course, year or department. Once selected, the table will then show all the students that will satisfy the chosen filters.",
         },
         {
           element: "#table",
-          intro: "This is where you can search for students with sanctions.",
+          intro: "This table shows the data for each students with sanctions.",
         },
         {
           element: "#home",
-          intro: "This is where you can search for students with sanctions.",
+          intro: "This button brings you to the home page or Dashboard.",
         },
         {
           element: "#configs",
-          intro: "This is where you can search for students with sanctions.",
+          intro: "This button brings you to the Configuration Page.",
         },
         {
           element: "#clarity",
-          intro: "This is where you can search for students with sanctions.",
+          intro: "This button brings you to Clarity AI for further assistance.",
         },
         // ... other steps for your tour
       ];

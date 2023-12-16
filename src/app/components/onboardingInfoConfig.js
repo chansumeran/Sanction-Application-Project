@@ -15,11 +15,13 @@ const OnboardingInfoConfig = ({ onInfoClick }) => {
       const steps = [
         {
           element: "#input1",
-          intro: "This is where you can search for students with sanctions.",
+          intro:
+            "In sanctioneer, there are three frequencies guided by a criterion. The user depending on the needs can modify this criterion. Once you're done modifying the default values, click accept.",
         },
         {
           element: "#input2",
-          intro: "This is where you can search for students with sanctions.",
+          intro:
+            "Parallel to the absences configuration, there is a default sanction for each frequency.  Once you're done modifying the default values, click accept.",
         },
         // ... other steps for your tour
       ];

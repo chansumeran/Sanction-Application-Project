@@ -6,11 +6,11 @@ import SanctionConfigInput2 from "../components/sanctionConfigInput2";
 const Config = () => {
   // Render the Dashboard content if authenticated
   return (
-    <div className="flex flex-col h-screen items-center bg-neutral">
+    <div className="flex flex-col h-screen items-center bg-neutral overflow-y-auto">
       <Header title="Configuration" onboardingType="config" />
 
       <div
-        className="flex w-8/12 h-[700px] bg-white p-20 rounded-2xl mt-6 shadow-lg   flex-col"
+        className="flex w-8/12 h-[700px] bg-white p-20 rounded-2xl mt-6 shadow-lg  overflow-y-auto flex-col"
         style={{ boxShadow: "0 10px 20px 10px rgba(134, 104, 255, 0.2)" }}
       >
         <h1 className="text-2xl font-semibold text-primary">
@@ -21,7 +21,7 @@ const Config = () => {
             Abscences
           </h4>
         </div>
-        <div className="space-x-4 mb-3 pt-4">
+        <div className="space-x-4 mb-3 pt-7">
           <div id="input1" className="inline-block">
             <SanctionConfigInput />
           </div>
@@ -36,7 +36,7 @@ const Config = () => {
             Sanction Description
           </h4>
         </div>
-        <div className="space-x-4 mb-3 pt-4">
+        <div className="space-x-4 mb-3 pt-7 ">
           <div id="input2" className="inline-block">
             <SanctionConfigInput2 />
           </div>
