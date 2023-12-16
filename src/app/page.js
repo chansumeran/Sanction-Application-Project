@@ -59,9 +59,7 @@ export default function Home() {
     }
   };
 
-<<<<<<< HEAD
 
-=======
    // Function to handle maintenance
    const handleMaintenance = () => {
     // Perform Axios request or any other maintenance logic
@@ -77,7 +75,6 @@ export default function Home() {
   };
 
   // Function to handle login text click
->>>>>>> ffd3c482d75bb3e927aabc447fafe608077d6d61
   const handleLoginTextClick = () => {
     setShowIncorrectKeyMessage(false);
     setLoginClicked(!isLoginClicked);
