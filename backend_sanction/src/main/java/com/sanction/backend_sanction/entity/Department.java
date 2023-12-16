@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class Department {
 
     @Id
-    @Column(name = "deptCode")
+    @Column(name = "dept_code")
     private String departmentCode;
 
-    @Column(name = "deptName")
+    @Column(name = "dept_name")
     private String departmentName;
 }
