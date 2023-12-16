@@ -3,7 +3,6 @@ import Header from '../components/header';
 
 const Dashboard = () => {
 
-  // Render the Dashboard content if authenticated
   return (
     <div className="flex flex-col h-screen items-center bg-neutral">
 
