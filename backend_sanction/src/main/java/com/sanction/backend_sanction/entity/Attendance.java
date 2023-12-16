@@ -14,29 +14,29 @@ import java.time.LocalDateTime;
 public class Attendance {
 
     @Id
-    @Column(name = "attendanceID")
+    @Column(name = "attendance_id")
     private Integer attendanceID;
 
-    @Column(name = "inAM")
+    @Column(name = "in_am")
     private LocalDateTime inAM;
 
-    @Column(name = "outAM")
+    @Column(name = "out_am")
     private LocalDateTime outAM;
 
-    @Column(name = "inPM")
+    @Column(name = "in_pm")
     private LocalDateTime inPM;
 
-    @Column(name = "outPM")
+    @Column(name = "out_pm")
     private LocalDateTime outPM;
 
-    @Column(name = "studentId")
+    @Column(name = "student_id")
     private Integer studentID;
 
     @ManyToOne
-    @JoinColumn(name = "eventID", referencedColumnName = "eventID", insertable = false, updatable = false)
+    @JoinColumn(name = "event_id", referencedColumnName = "event_id", insertable = false, updatable = false)
     private Event eventID;
 
     @ManyToOne
-    @JoinColumn(name = "studentID", referencedColumnName = "studentID", insertable = false, updatable = false)
+    @JoinColumn(name = "student_id", referencedColumnName = "student_id", insertable = false, updatable = false)
     private Student student;
 }

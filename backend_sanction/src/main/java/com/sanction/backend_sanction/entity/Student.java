@@ -12,39 +12,39 @@ import lombok.NoArgsConstructor;
 public class Student {
 
     @Id
-    @Column(name = "studentID")
+    @Column(name = "student_id")
     private Integer studentId;
 
-    @Column(name = "fName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lName")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "middleInitial")
+    @Column(name = "middle_initial")
     private String middleInitial;
 
     private String sex;
 
-    @Column(name = "deptCode")
+    @Column(name = "dept_code")
     private String departmentCode;
 
     private String course;
 
-    @Column(name = "yearlvl")
+    @Column(name = "year_level")
     private Integer yearLevel;
 
-    @Column(name = "ifOfficer")
+    @Column(name = "is_officer")
     private Boolean isOfficer;
 
-    @Column(name = "sanctionID")
+    @Column(name = "sanction_id")
     private Integer sanctionId;
 
     @ManyToOne
-    @JoinColumn(name = "deptCode", referencedColumnName = "deptCode", insertable = false, updatable = false, nullable = false)
+    @JoinColumn(name = "dept_code", referencedColumnName = "dept_code", insertable = false, updatable = false, nullable = false)
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "sanctionID", referencedColumnName = "sanctionID", insertable = false, updatable = false)
+    @JoinColumn(name = "sanction_id", referencedColumnName = "sanction_id", insertable = false, updatable = false)
     private Sanction sanction;
 }
