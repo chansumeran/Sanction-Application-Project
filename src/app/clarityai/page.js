@@ -49,7 +49,13 @@ const Clarityai = () => {
     }).catch((error) => {
       setIsloading(false);
       console.log(error);
-    })
+
+      // Display an error message in the chat container
+      setChatLog((prevChatLog) => [
+        ...prevChatLog, 
+        { type: 'bot', message: "There seems to be a problem. Please try again later." }
+      ]);
+    });
   }
 
   useEffect(() => {
@@ -90,7 +96,7 @@ const Clarityai = () => {
               {
                 isLoading &&
                 <div key={chatLog.length} className='flex justify-start'>
-                  <div className='bg-neutral rounded-lg p-6 text-white max-w-sm'>
+                  <div className='bg-neutral rounded-lg p-3 text-white max-w-sm'>
                     <TypingAnimation/>
                   </div>
                 </div>
@@ -128,9 +134,8 @@ const Clarityai = () => {
             </div>
 
           </form>
-
+              
         </div>
-
         <Navbar/>
         
     </div>
