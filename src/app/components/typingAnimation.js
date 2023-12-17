@@ -1,9 +1,12 @@
 const TypingAnimation = () => {
     return (
-      <div className="flex items-center space-x-2">
-        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gray-300 to-gray-500 animate-pulse"></div>
-        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gray-300 to-gray-500 animate-pulse delay-75"></div>
-        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gray-300 to-gray-500 animate-pulse delay-150"></div>
+      <div className="space-x-2">
+        <div class="loader-dots block relative w-20 p-2 mt-2">
+          <div class="absolute top-0  w-2 h-2 rounded-full bg-gray-500"></div>
+          <div class="absolute top-0  w-2 h-2 rounded-full bg-gray-500"></div>
+          <div class="absolute top-0  w-2 h-2 rounded-full bg-gray-500"></div>
+          <div class="absolute top-0  w-2 h-2 rounded-full bg-gray-500"></div>
+        </div>
       </div>
     );
   };

@@ -1,12 +1,8 @@
 "use client";
-import {
-  HomeIcon,
-  Cog8ToothIcon,
-  ChatBubbleOvalLeftEllipsisIcon,
-} from "@heroicons/react/24/solid";
-
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import { HomeIcon, Cog8ToothIcon, ChatBubbleOvalLeftEllipsisIcon } from '@heroicons/react/24/solid';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("/dashboard");
@@ -25,7 +21,7 @@ const Navbar = () => {
           <Link href="/dashboard">
             <div
               id="home"
-              className={`p-2 rounded-lg rounded-full ${
+              className={`p-2 rounded-lg ${
                 activeLink === "/dashboard" ? "bg-gray-700 text-white" : ""
               }`}
             >
@@ -54,6 +50,8 @@ const Navbar = () => {
               <ChatBubbleOvalLeftEllipsisIcon className="h-5 w-5" />
             </div>
           </Link>
+
+          <UserButton/>
         </div>
       </div>
     </div>

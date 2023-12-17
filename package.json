@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@clerk/nextjs": "^4.28.1",
     "@heroicons/react": "^2.0.18",
     "axios": "^1.6.2",
     "framer-motion": "^10.16.16",
