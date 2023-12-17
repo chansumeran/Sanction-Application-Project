@@ -5,7 +5,7 @@ import SanctionConfigInput2 from "../components/sanctionConfigInput2";
 
 const Config = () => {
   return (
-    <div className="flex flex-col h-screen items-center bg-neutral overflow-y-auto">
+    <div className="flex flex-col h-screen items-center bg-neutral">
       <Header title="Configuration" onboardingType="config" />
 
       <div
