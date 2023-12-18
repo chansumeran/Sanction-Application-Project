@@ -2,18 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+.cl-internal-1ntkffu{
+    display: none;
+}
 
-::-webkit-scrollbar {
-    width: 12px;
+.cl-internal-b3fm6y{
+    display: none;
+}
+
+.cl-organizationSwitcher-root{
+    background-color: #EDEAF6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0.4rem;
+    border-radius: 12px;
+}
+
+.cl-organizationSwitcherPopoverFooter{
+    display: none;
+}
+
+.cl-userButtonPopoverFooter{
+    display: none;
+}
+
+.cl-internal-h5qh6n{
+    font-weight: bold;
+}
+
+.cl-internal-hhiw0 {
+    display: none;
+}
+
+.cl-organizationSwitcherPreviewButton {
+    display: none;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #374151 #f2f2f2;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #374151; 
-    border-radius: 6px; 
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 13px;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #374151; 
+  *::-webkit-scrollbar-track {
+    background: #f2f2f2;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #8b8b8b;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
   }
 
   .loader-dots div {

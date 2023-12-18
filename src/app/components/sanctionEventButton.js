@@ -12,15 +12,15 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Stagger the animation of children by 0.1 second
+      staggerChildren: 0.1, 
     },
   },
 };
 
 const menuItemVariants = {
-  hidden: { x: -20, opacity: 0 }, // Start from left of the container
+  hidden: { x: -20, opacity: 0 }, 
   visible: {
-    x: 0, // End at the actual position
+    x: 0, 
     opacity: 1,
     transition: {
       x: { type: "tween", duration: 0.3, ease: "easeOut" },
@@ -28,6 +28,7 @@ const menuItemVariants = {
     },
   },
 };
+
 
 const sanctionEventButton = () => {
   return (
