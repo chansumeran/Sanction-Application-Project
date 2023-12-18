@@ -3,6 +3,7 @@ import Header from "../components/header";
 import SanctionEventButton from "../components/sanctionEventButton";
 import SanctionAdvancedButton from "../components/sanctionAdvanceButton";
 import SanctionHomeTable from "../components/sanctionHomeTable";
+import FilterButton from "../components/filterButton";
 
 const Dashboard = () => {
   return (
@@ -26,8 +27,9 @@ const Dashboard = () => {
               id="searchInput"
               placeholder="Search..."
             />
-            <SanctionEventButton id="eventButton" />
-            <SanctionAdvancedButton id="advanceButton" />
+            <FilterButton />
+            {/* <SanctionEventButton id="eventButton" /> */}
+            {/* <DropdownFilter id="advanceButton" /> */}
           </div>
         </div>
         <SanctionHomeTable />
