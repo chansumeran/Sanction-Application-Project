@@ -7,6 +7,7 @@ import SanctionHomeTable from "../components/sanctionHomeTable";
 import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
 import { convertTableToCSV } from '../utils/convertTableToCsv';
 import { motion } from "framer-motion";
+import FilterButton from "../components/filterButton";
 
 const Dashboard = () => {
 
@@ -71,6 +72,9 @@ const Dashboard = () => {
               <ArrowUpTrayIcon className="h-4 w-4" />
             </motion.button>
 
+            <FilterButton />
+            {/* <SanctionEventButton id="eventButton" /> */}
+            {/* <DropdownFilter id="advanceButton" /> */}
           </div>
         </div>
         <SanctionHomeTable />
