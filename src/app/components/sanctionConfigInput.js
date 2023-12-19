@@ -32,13 +32,13 @@ const SanctionConfigInput = () => {
       const defaultFrequency3 = 7;
   
       const payload = [
-        { sanctionId: 1, newTrigger: parseInt(frequency1, 10) || defaultFrequency1 },
-        { sanctionId: 2, newTrigger: parseInt(frequency2, 10) || defaultFrequency2 },
-        { sanctionId: 3, newTrigger: parseInt(frequency3, 10) || defaultFrequency3 },
+        { sanctionId: 2, newTrigger: parseInt(frequency1, 10) || defaultFrequency1 },
+        { sanctionId: 3, newTrigger: parseInt(frequency2, 10) || defaultFrequency2 },
+        { sanctionId: 4, newTrigger: parseInt(frequency3, 10) || defaultFrequency3 },
       ];
   
       const response = await axios.put(
-        'https://enormous-boat-production.up.railway.app/config/update-triggers',
+        'https://wecomplyapi-production.up.railway.app/config/update-triggers',
         payload
       );
       setSuccessMsg(true);
@@ -71,7 +71,7 @@ const SanctionConfigInput = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50 "
+            className="border-none rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
             type="text"
             id="frequency1"
             placeholder="Default value of 1 "
@@ -89,7 +89,7 @@ const SanctionConfigInput = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
+            className="border-none rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
             id="frequency2"
             placeholder="Default value of 4"
             value={frequency2}
@@ -106,7 +106,7 @@ const SanctionConfigInput = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
+            className="border-none rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
             type="text"
             id="frequency3"
             placeholder="Default value of 7"
