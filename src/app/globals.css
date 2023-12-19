@@ -10,6 +10,14 @@
     display: none;
 }
 
+.cl-formButtonPrimary{
+    background-color: #5d57c9;
+}
+
+.cl-formButtonPrimary:hover {
+    background-color: rgb(66, 66, 66);
+}
+
 .cl-organizationSwitcher-root{
     background-color: #EDEAF6;
     display: flex;
@@ -19,6 +27,7 @@
     padding: 0.4rem;
     border-radius: 12px;
 }
+
 
 .cl-organizationSwitcherPopoverFooter{
     display: none;

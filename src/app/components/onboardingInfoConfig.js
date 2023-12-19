@@ -31,7 +31,7 @@ const OnboardingInfoConfig = ({ onInfoClick }) => {
     }
   }, [startTour]);
   return (
-    <div className="pr-4">
+    <div className="">
     <motion.button
       onClick={() => setStartTour(true)}
       aria-label="Information"

@@ -31,9 +31,14 @@ const Config = () => {
 
   return (
     <div className="flex flex-col h-screen items-center bg-neutral">
+      
       <Header title="Configuration" onboardingType="config" />
 
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ ease: "easeInOut", duration: 1 }}
         className="flex w-8/12 h-[700px] bg-white p-16 rounded-2xl mt-6 shadow-lg overflow-y-auto xl:overflow-hidden flex-col"
         style={{ boxShadow: "0 10px 20px 10px rgba(134, 104, 255, 0.2)" }}
       >
@@ -96,7 +101,7 @@ const Config = () => {
             *Attention: It is highly recommended to reset the sanction configurations every school year to avoid errors*
           </h4>
         </div>
-      </div>
+      </motion.div>
 
       {serverError && (
           <div className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>

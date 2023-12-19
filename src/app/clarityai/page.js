@@ -122,7 +122,11 @@ const Clarityai = () => {
       
       <Header title="Clarity AI" onboardingType="clarity" />
 
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ ease: "easeInOut", duration: 1 }}
         className="flex flex-col w-8/12 h-[700px] overflow-y-auto bg-white p-6 rounded-2xl mt-6 shadow-lg"
         style={{ boxShadow: "0 10px 20px 10px rgba(134, 104, 255, 0.2)" }}
       >
@@ -196,8 +200,17 @@ const Clarityai = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="flex-none p-4">
-          <div className="flex gap-2">
-            <input
+          <div className="flex gap-3">
+            <motion.input
+              whileHover={{ scale: 1.02 }}
+              transition={{
+                type: "spring",
+                stiffness: 150,
+                damping: 20,
+                when: "afterChildren",
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
               type="text"
               id="chatBox"
               className="flex-grow px-4 pl-8 py-3 md:py-4 border rounded-xl shadow-md focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50 bg-neutral"
@@ -247,7 +260,7 @@ const Clarityai = () => {
             </motion.button>
           </div>
         </form>
-      </div>
+      </motion.div>
 
       {blankInput && (
         <div className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>

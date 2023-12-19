@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { data } from 'autoprefixer';
-import { SignIn } from '@clerk/nextjs';
+import { SignIn} from '@clerk/nextjs';
+import Image from 'next/image';
 
 export default function Home() {
+
 
   const router = useRouter();
 
@@ -31,7 +33,6 @@ export default function Home() {
   const [invalidFormat, setInvalidFormat] = useState(false);
   const [blankInput, setBlankInput] = useState(false);
   const [sanctionId, setSanctionId] = useState('');
-  const [showLogin, setShowLogin] = useState(true);
 
 
   const handleKeyDown = (e) => {
@@ -52,7 +53,7 @@ export default function Home() {
 
     if (isLoginClicked) {
       if (secretKeyInput === secretKey) {
-        setShowLogin(false);
+        router.push('/dashboard');
       } else {
         setShowIncorrectKeyMessage(true);
 
@@ -112,7 +113,7 @@ export default function Home() {
 
     try {
       const response = await axios.get(
-        `https://enormous-boat-production.up.railway.app/student-attendance-summary/student-and-attendance-summary/${idNumber}`
+        `https://wecomplyapi-production.up.railway.app/student-attendance-summary/${idNumber}`
       );
 
       setSearchError(false);
@@ -172,7 +173,6 @@ export default function Home() {
     setInfo('');
     setSanction('');
     setSearchError(false);
-    setShowLogin(true);
   };
 
   return (
@@ -180,10 +180,17 @@ export default function Home() {
     className="bg-primary w-screen min-h-screen flex flex-col md:flex-row items-center gap-x-36">
 
       {/* Left Container */}
-      <section className='md:w-6/12 flex md:justify-end items-center'>
-        
+      <section className='md:w-6/12 flex-col md:flex-row flex md:justify-end items-center'>
+        <div className="mt-24 md:mt-0 w-40 md:w-48">
+        <Image
+                src="/wecomply-logo-metadata.png"
+                alt="Clarity Logo"
+                width={290}
+                height={290}
+        />
+        </div>
         {/* Header*/}
-        <div className='mt-24 md:mt-0'>
+        <div className='mt-4 md:mt-0'>
           <p className='font-extralight text-[18px] md:text-[34px] md:leading-10 text-white'>Together</p>
           <h1 className='font-bold text-[44px] md:text-[74px] leading-10 text-white md:mt-4'>WeComply.</h1>
         </div>
@@ -194,7 +201,7 @@ export default function Home() {
       <section className='md:w-6/12 flex flex-col items-center md:items-start'>
 
         {/* InputBox */}
-        {(showLogin || showSearchContainer) && (
+        {(!showSearchContainer) && (
           <div id="hideWhenSearching" className={`flex justify-center items-center gap-2 mt-10 ${showSearchContainer ? 'hidden' : ''}`}>
             {isLoginClicked ? (
               <input
@@ -218,24 +225,26 @@ export default function Home() {
             )}
 
             {/* Track/Login Button */}
-            <button className="bg-gray-700 p-3 md:p-4 rounded-xl text-white" onClick={handleLoginButtonClick}>
+            <motion.button 
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: "#343434",
+            }}
+            whileTap={{
+              scale: 0.98,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "easeInOut",
+            }}
+            className="bg-gray-700 p-3 md:p-4 rounded-xl text-white" onClick={handleLoginButtonClick}>
               <ArrowLeftOnRectangleIcon className="h-6 w-6 pl-0.5" />
-            </button>
+            </motion.button>
           </div>
         )}
-
-        {showLogin ? null : (
-          <div className='bg-white rounded-2xl px-3 py-8'>
-            <div onClick={handleArrowLeftClick} className='cursor-pointer'>
-                <ArrowSmallLeftIcon className="h-6 w-6 pl-0.5" />
-            </div>
-            <SignIn redirectUrl="/dashboard" />
-          </div>
-        )}
-
 
         {/* Action text */}
-        {(showLogin || showSearchContainer) && (
+        {(!showSearchContainer) && (
           <div className={`container flex justify-center md:justify-start mt-3 md:mt-0 ${showSearchContainer ? 'hidden' : ''}`}>
             {isLoginClicked ? (
               <p className='font-extralight text-md md:text-[18px] leading-10 text-white md:mt-2'>
@@ -256,39 +265,60 @@ export default function Home() {
 
         {/* Error message */}
         {showIncorrectKeyMessage && (
-          <div className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
+          <motion.div 
+          initial={{ opacity: 0,}}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0}}
+          transition={{ ease: "easeInOut", duration: 0.4 }}
+          className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
             <div className='flex items-center gap-1'>
               <ExclamationCircleIcon className="h-7 w-7" />
               <p>Incorrect Key. Please Contact the LITES President.</p>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {searchError && (
-          <div className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
+          <motion.div 
+          initial={{ opacity: 0,}}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0}}
+          transition={{ ease: "easeInOut", duration: 0.4 }}
+          className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
             <div className='flex items-center gap-1'>
               <ExclamationCircleIcon className="h-7 w-7" />
               <p>User not found!</p>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {invalidFormat && (
-          <div className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
+          <motion.div
+          initial={{ opacity: 0,}}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0}}
+          transition={{ ease: "easeInOut", duration: 0.4 }}
+          className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
             <div className='flex items-center gap-1'>
               <ExclamationCircleIcon className="h-7 w-7" />
               <p>Invalid Format!</p>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {blankInput && (
-          <div className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'>
+          <motion.div
+          initial={{ opacity: 0,}}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0}}
+          transition={{ ease: "easeInOut", duration: 0.4 }}
+          className='error-message absolute top-8 left-1/2 transform -translate-x-1/2 bg-error flex items-center py-1 md:py-3 px-4 font-semibold text-white text-[12px] md:text-[14px] rounded-lg'
+          >
             <div className='flex items-center gap-1'>
               <ExclamationCircleIcon className="h-7 w-7" />
               <p>Please enter an input!</p>
             </div>
-          </div>
+          </motion.div>
         )}
 
 
@@ -312,11 +342,11 @@ export default function Home() {
                         <div className='font-bold'>Sanction:</div>{' '}
                         <div 
                           className={`rounded-xl p-3 px-5 text-xs font-semibold ${
-                            sanctionId === 1
+                            sanctionId === 2
                               ? 'bg-lowSanc text-white'
-                              : sanctionId === 2
-                              ? 'bg-medSanc text-white'
                               : sanctionId === 3
+                              ? 'bg-medSanc text-white'
+                              : sanctionId === 4
                               ? 'bg-highSanc text-white'
                               : 'bg-gray-300'
                           }`}

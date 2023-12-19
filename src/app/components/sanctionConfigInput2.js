@@ -29,13 +29,13 @@ const SanctionConfigInput2 = () => {
       const defaultDescription3 = 'Suspension';
 
       const payload = [
-        { sanctionId: 1, newDescription: description1 || defaultDescription1 },
-        { sanctionId: 2, newDescription: description2 || defaultDescription2 },
-        { sanctionId: 3, newDescription: description3 || defaultDescription3 },
+        { sanctionId: 2, newDescription: description1 || defaultDescription1 },
+        { sanctionId: 3, newDescription: description2 || defaultDescription2 },
+        { sanctionId: 4, newDescription: description3 || defaultDescription3 },
       ];
 
       const response = await axios.put(
-        'https://enormous-boat-production.up.railway.app/config/update-descriptions',
+        'https://wecomplyapi-production.up.railway.app/config/update-descriptions',
         payload
       );
       
@@ -72,7 +72,7 @@ const SanctionConfigInput2 = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm  w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
+            className="border-none rounded-md py-3 px-6 text-sm  w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
             type="text"
             id="description1"
             placeholder="Default value of Warning"
@@ -89,7 +89,7 @@ const SanctionConfigInput2 = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
+            className="border-none rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
             id="description2"
             placeholder="Default value of Counselling"
             value={description2}
@@ -105,7 +105,7 @@ const SanctionConfigInput2 = () => {
           </label>
           <input
             style={{ backgroundColor: "#EDF1F7" }}
-            className="rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
+            className="border-none rounded-md py-3 px-6 text-sm w-64  focus:outline-none focus:ring focus:ring-gray-700 focus:ring-opacity-50"
             type="text"
             id="description3"
             placeholder="Default value of Payment"
