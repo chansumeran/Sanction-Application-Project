@@ -38,16 +38,26 @@ const OnboardingInfoClarity = ({ onInfoClick }) => {
     }
   }, [startTour]);
   return (
+    <div className="">
     <motion.button
       onClick={() => setStartTour(true)}
       aria-label="Information"
-      whileHover={{ backgroundColor: "#5947A2" }}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
-      whileTap={{ scale: 0.75 }}
+      whileHover={{
+        scale: 1.2,
+        backgroundColor: "#4d48a8",
+      }}
+      whileTap={{
+        scale: 0.98,
+      }}
+      transition={{
+        duration: 0.2,
+        ease: "easeInOut",
+      }}
       className="flex items-center justify-center h-9 w-9 rounded-full"
     >
       <InformationCircleIcon className="h-9 w-9 text-white" />
     </motion.button>
+    </div>
   );
 };
 

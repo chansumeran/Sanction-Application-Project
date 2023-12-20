@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "dev:frontend": "next dev",
-    "dev:backend": "cd backend_sanction && mvn spring-boot:run",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,6 +12,7 @@
     "@clerk/nextjs": "^4.28.1",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@nextui-org/react": "^2.2.9",
     "axios": "^1.6.2",
     "browserslist": "^4.22.2",
     "flowbite": "^2.2.1",

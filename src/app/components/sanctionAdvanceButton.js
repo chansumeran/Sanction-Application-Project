@@ -29,6 +29,23 @@ const menuItemVariants = {
     },
   },
 };
+
+const filterData = async () => {
+  // Perform Axios request or any other maintenance logic
+  try {
+    const response = await axios.get(
+      `https://enormous-boat-production.up.railway.app/students/filter?deptCode=SEAITE&course=BSIT&yearLevel=4`
+    );
+
+    const fetchedStudents = response.data;
+    setStudents(fetchedStudents);
+
+  } catch (error) {
+    console.error('Error fetching data', error);
+  }
+};
+
+
 const sanctionAdvancedButton = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
