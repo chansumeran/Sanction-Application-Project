@@ -17,14 +17,13 @@ const OnboardingInfo = ({ onInfoClick }) => {
           intro: "This is where you can search for students with sanctions.",
         },
         {
-          element: "#eventButton",
-          intro:
-            "Click this button to filter per events. The table will then show all the students that is participating/participated in the event.",
-        },
-        {
           element: "#advanceButton",
           intro:
             "Click this button to filter per course, year or department. Once selected, the table will then show all the students that will satisfy the chosen filters.",
+        },
+        {
+          element: "#exportButton",
+          intro: "Click this button to export the sanction data.",
         },
         {
           element: "#table",
@@ -52,24 +51,24 @@ const OnboardingInfo = ({ onInfoClick }) => {
   }, [startTour]);
   return (
     <div className="">
-    <motion.button
-      onClick={() => setStartTour(true)}
-      aria-label="Information"
-      whileHover={{
-        scale: 1.20,
-        backgroundColor: "#4d48a8",
-      }}
-      whileTap={{
-        scale: 0.98,
-      }}
-      transition={{
-        duration: 0.2,
-        ease: "easeInOut",
-      }}
-      className="flex items-center justify-center h-9 w-9 rounded-full"
-    >
-      <InformationCircleIcon className="h-9 w-9 text-white" />
-    </motion.button>
+      <motion.button
+        onClick={() => setStartTour(true)}
+        aria-label="Information"
+        whileHover={{
+          scale: 1.2,
+          backgroundColor: "#4d48a8",
+        }}
+        whileTap={{
+          scale: 0.98,
+        }}
+        transition={{
+          duration: 0.2,
+          ease: "easeInOut",
+        }}
+        className="flex items-center justify-center h-9 w-9 rounded-full"
+      >
+        <InformationCircleIcon className="h-9 w-9 text-white" />
+      </motion.button>
     </div>
   );
 };
